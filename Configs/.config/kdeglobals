@@ -1,11 +1,14 @@
 [Colors:View]
-BackgroundNormal=#00000000
+BackgroundNormal=#2D2363FF
 
 [General]
-TerminalApplication=kitty
+TerminalApplication=
 
 [Icons]
-Theme=Will be overwritten on themeswitch
+Theme=Tela-circle-pink
+
+[KDE]
+widgetStyle=kvantum
 
 [UiSettings]
 ColorScheme=colors

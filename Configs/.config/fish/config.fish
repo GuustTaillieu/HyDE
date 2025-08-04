@@ -43,7 +43,7 @@ bind_M_n_history
 
 
 # example integration with bat : <cltr+f>
-# bind -M insert \ce '$EDITOR $(fzf --preview="bat --color=always --plain {}")' 
+bind -M insert \ce '$EDITOR $(fzf --preview="bat --color=always --plain {}")' 
 
 
 set fish_pager_color_prefix cyan
