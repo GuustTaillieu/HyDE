@@ -85,6 +85,18 @@ cd ~/HyDE/Scripts
 ./install.sh
 ```
 
+To add the pre-installed programs run:
+```
+cd ~/HyDE/Scripts
+./install_programs.sh
+```
+
+To sync the edited configs in .config to the HyDE project use:
+```
+cd ~/HyDE/Scripts
+./sync_configs.sh
+``
+
 > [!TIP]
 > You can also add any other apps you wish to install alongside HyDE to `Scripts/pkg_user.lst` and pass the file as a parameter to install it like so:
 >
