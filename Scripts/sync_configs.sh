@@ -11,7 +11,7 @@ DEST_CONFIG_DIR="$DEST_REPO_DIR/Configs/.config" # Where the configs live within
 EXCLUDE_LIST=(
     "cfg_backups/"
     "parallel/tmp/"
-    "nvim/plugged/"           # Example: if you manage vim plugins via a plugin manager
+    "nvim"           # Example: if you manage vim plugins via a plugin manager
     "code/User/workspaceStorage/" # Example: VS Code workspace state
     # "some_app/cache/"
     "*.log"                   # Exclude all .log files
