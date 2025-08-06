@@ -64,8 +64,7 @@ function pnpm() {
 }
 
 # Load nvm scripts only if they haven't been loaded yet
-function nvm {
-	unfunction nvm
+function load_nvm {
 	export NVM_DIR="$HOME/.config/nvm"
 	if [ ! -f "$NVM_DIR/nvm.sh" ]; then
 		echo "NVM scripts not found at $NVM_DIR. Please check your NVM_DIR." >&2
@@ -76,5 +75,25 @@ function nvm {
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+}
+
+function nvm {
+  unfunction nvm
+  load_nvm
 	nvm "$@"
 }
+
+# Loads npm
+function npm {
+  unfunction npm
+  load_nvm
+  npm "$@"
+}
+
+# pnpm
+export PNPM_HOME="/home/gustavo/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
