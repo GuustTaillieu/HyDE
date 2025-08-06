@@ -44,16 +44,37 @@ alias gs='git status'
 # # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
 
-# Functions
-function backup_configs {
-	pushd $HOME/HyDE/Scripts/ > /dev/null
-	sh sync_configs.sh
-	popd > /dev/null
-}
-
 #  This is your file 
 # Add your configurations here
 export EDITOR=nvim
 # export EDITOR=code
 
 unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
+
+# pnpm lazy loading with hash -d
+function pnpm() {
+	unfunction pnpm
+  export PNPM_HOME="/home/gustavo/.local/share/pnpm"
+
+  if ! echo "$PATH" | grep -q "$PNPM_HOME"; then
+    export PATH="$PNPM_HOME:$PATH"
+  fi
+
+  pnpm "$@"
+}
+
+# Load nvm scripts only if they haven't been loaded yet
+function nvm {
+	unfunction nvm
+	export NVM_DIR="$HOME/.config/nvm"
+	if [ ! -f "$NVM_DIR/nvm.sh" ]; then
+		echo "NVM scripts not found at $NVM_DIR. Please check your NVM_DIR." >&2
+		return 1
+	fi
+
+	# Load nvm and its bash completion
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+	nvm "$@"
+}
