@@ -20,23 +20,23 @@
         "emptyWindows": {}
     },
     "theme": "vs-dark",
-    "themeBackground": "#1b2059",
+    "themeBackground": "#101419",
     "windowSplash": {
         "zoomLevel": 0,
         "baseTheme": "vs-dark",
         "colorInfo": {
             "foreground": "#ffffff",
-            "background": "#1b2059",
-            "editorBackground": "#1b2059",
-            "titleBarBackground": "#1b2059",
+            "background": "#101419",
+            "editorBackground": "#101419",
+            "titleBarBackground": "#101419",
             "titleBarBorder": "rgba(0, 0, 0, 0)",
-            "activityBarBackground": "#292c52",
+            "activityBarBackground": "#293b52",
             "activityBarBorder": "rgba(0, 0, 0, 0)",
-            "sideBarBackground": "#292c52",
+            "sideBarBackground": "#293b52",
             "sideBarBorder": "rgba(0, 0, 0, 0)",
-            "statusBarBackground": "#1b2059",
+            "statusBarBackground": "#101419",
             "statusBarBorder": "rgba(0, 0, 0, 0)",
-            "statusBarNoFolderBackground": "#1b2059",
+            "statusBarNoFolderBackground": "#101419",
             "windowBorder": "rgba(0, 0, 0, 0)"
         },
         "layoutInfo": {
@@ -59,7 +59,7 @@
                 "x": 0,
                 "y": 0,
                 "width": 960,
-                "height": 521
+                "height": 1042
             }
         },
         "openedWindows": []
@@ -70,6 +70,10 @@
             "auxiliaryBarWidth": 300,
             "workspaces": {
                 "3df81f72ff3dd479e2dbbe56af6734e2": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "a38b62369fdd7ff37e6b74977d658a0a": {
                     "sideBarVisible": true,
                     "auxiliaryBarVisible": false
                 }

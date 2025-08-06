@@ -25,7 +25,7 @@ alias up='$aurhelper -Syu'                                             # update 
 alias cleanup='$aurhelper -Qtdq | $aurhelper -Rns -'                        # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='vscodium'                                                        # gui code editor
 alias fastfetch='fastfetch --logo-type kitty'
-alias nv='neovim .'
+alias nv='nvim .'
 
 # Directory navigation shortcuts
 alias ..='cd ..'
@@ -43,6 +43,13 @@ alias gs='git status'
 
 # # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 alias mkdir='mkdir -p'
+
+# Functions
+function backup_configs {
+	pushd $HOME/HyDE/Scripts/ > /dev/null
+	sh sync_configs.sh
+	popd > /dev/null
+}
 
 #  This is your file 
 # Add your configurations here
