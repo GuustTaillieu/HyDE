@@ -1,0 +1,79 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "5a3d0393ff20ce0be314e8c9c4dd26d8fa1b0874258df91a2c0c44b636765ccb",
+    "telemetry.devDeviceId": "a8a27e95-d7c5-4ec6-ab92-d0f42bed0c03",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/gustavo/HyDE"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/gustavo/HyDE": "__default__profile__",
+            "file:///home/gustavo/HyDE/Configs/.config": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "theme": "vs-dark",
+    "themeBackground": "#1b2059",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "vs-dark",
+        "colorInfo": {
+            "foreground": "#ffffff",
+            "background": "#1b2059",
+            "editorBackground": "#1b2059",
+            "titleBarBackground": "#1b2059",
+            "titleBarBorder": "rgba(0, 0, 0, 0)",
+            "activityBarBackground": "#292c52",
+            "activityBarBorder": "rgba(0, 0, 0, 0)",
+            "sideBarBackground": "#292c52",
+            "sideBarBorder": "rgba(0, 0, 0, 0)",
+            "statusBarBackground": "#1b2059",
+            "statusBarBorder": "rgba(0, 0, 0, 0)",
+            "statusBarNoFolderBackground": "#1b2059",
+            "windowBorder": "rgba(0, 0, 0, 0)"
+        },
+        "layoutInfo": {
+            "sideBarSide": "right",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 0,
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 0,
+            "statusBarHeight": 0,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/gustavo/HyDE",
+            "backupPath": "/home/gustavo/.config/VSCodium/Backups/40833239313524823affc622f0e5d96b",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 0,
+                "width": 960,
+                "height": 521
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "sideBarWidth": 300,
+            "auxiliaryBarWidth": 300,
+            "workspaces": {
+                "3df81f72ff3dd479e2dbbe56af6734e2": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                }
+            }
+        }
+    }
+}
