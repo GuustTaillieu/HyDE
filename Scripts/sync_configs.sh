@@ -5,25 +5,82 @@ SOURCE_DIR="$HOME/.config"
 DEST_REPO_DIR="$HOME/HyDE" # The root of your cloned HyDE repository
 DEST_CONFIG_DIR="$DEST_REPO_DIR/Configs/.config" # Where the configs live within the repo
 
-# --- Exclusion List ---
-# These patterns are relative to SOURCE_DIR (~/.config/).
-# Add any directories or files you want to IGNORE during sync.
-EXCLUDE_LIST=(
-    "cfg_backups/"
-    "parallel/tmp/"
-    "nvim"           # Example: if you manage vim plugins via a plugin manager
-    "code/User/workspaceStorage/" # Example: VS Code workspace state
-    # "some_app/cache/"
-    "*.log"                   # Exclude all .log files
-    "*.cache" 		# Excludes any file/directory ending with .cache.
+# --- Inclusion List ---
+# IMPORTANT: ONLY items (directories or files) listed here will be synced.
+# These paths are relative to SOURCE_DIR (~/.config/).
+# Ensure you list the top-level directories/files you want to back up.
+#
+# DO NOT include a leading '/' (e.g., '/hypr/'). Paths are relative.
+INCLUDE_LIST=(
+	"Kvantum/"
+	"VSCodium/"
+	"cava/"
+	"dunst/"
+	"fastfetch/"
+	"fish/"
+	"gtk-3.0/"
+	"gtk-4.0/"
+	"hyde/"
+	"hypr/"
+	"kde.org/"
+	"kitty/"
+	"menus/"
+	"nwg-look/"
+	"pulse/"
+	"qt5ct/"
+	"qt6ct/"
+	"rofi/"
+	"session/"
+	"spicetify/"
+	"starship/"
+	"swaylock/"
+	"systemd/"
+	"vim/"
+	"waybar/"
+	"wlogout/"
+	"zsh/"
+	"arkrc"
+	"baloofileinformationrc"
+	"baloofilerc"
+	"code-flags.conf"
+	"codium-flags.conf"
+	"dolphinrc"
+	"electron-flags.conf"
+	"kdeglobals"
+	"libinput-gestures.conf"
+	"mimeapps.list"
+	"pavucontrol.ini"
+	"spotify-flags.conf"
+	"user-dirs.dirs"
+	"user-dirs.locale"
 )
+
+# --- Exclusion List ---
+# These patterns are relative to the *individual item being synced*.
+# They apply to paths *within* the items specified in INCLUDE_LIST.
+# Use this for subdirectories or files within your included configs that
+# you still want to explicitly ignore (e.g., caches, logs, temporary files).
+#
+EXCLUDE_LIST=(
+    "cache/"
+    "tmp/"
+    "*.log"
+    "*.cache"
+    "session/"
+    "user_data/"
+    "runtime/"
+    "nvim/"
+    "vesktop/"
+    "spotify/"
+    # WARNING - Important to EXCLUDE all programs with user details like passwords etc.!!
+)
+
 
 # Convert EXCLUDE_LIST array to rsync-compatible --exclude arguments
 EXCLUDE_ARGS=""
 for item in "${EXCLUDE_LIST[@]}"; do
     EXCLUDE_ARGS+=" --exclude='$item'"
 done
-# Remove leading space if EXCLUDE_ARGS is empty (though it won't be with cfg_backups)
 EXCLUDE_ARGS=$(echo "$EXCLUDE_ARGS" | xargs) # Cleans up whitespace
 
 # --- Pre-flight Checks ---
@@ -57,41 +114,36 @@ fi
 # 3. Ensure the target config directory within the repository exists (create if not)
 mkdir -p "$DEST_CONFIG_DIR"
 
-echo "Starting comprehensive configuration sync..."
+echo "Starting selective configuration sync (add and update only, maintaining structure)..."
 
-# --- Dynamic Sync Logic ---
-# Find top-level items in SOURCE_DIR and sync them, applying exclusions.
-find "$SOURCE_DIR" -maxdepth 1 -mindepth 1 -print0 | while IFS= read -r -d $'\0' item_path; do
-    item_name=$(basename "$item_path")
-    # Check if the item_name matches any exclude pattern for top-level items
-    SKIP_ITEM=false
-    for exclude_pattern in "${EXCLUDE_LIST[@]}"; do
-        # For simple top-level directory/file exclusion, we compare item_name
-        # The exclude pattern itself might contain '/', so we check the base name
-        # For simplicity, if the pattern ends with '/', remove it for direct comparison
-        stripped_pattern="${exclude_pattern%/}" # Removes trailing slash if present
-        if [[ "$item_name" == "$stripped_pattern" ]]; then
-            echo "Skipping excluded item: $item_name"
-            SKIP_ITEM=true
-            break
-        fi
-        # If the pattern is a deeper path like "parallel/tmp/", we can't easily check it here
-        # based on item_name alone. rsync's --exclude handles this better internally.
-        # We will let rsync handle sub-directory exclusions.
-    done
+# --- Selective Sync Logic ---
+# Iterate only over the items explicitly defined in INCLUDE_LIST.
+for item_to_sync in "${INCLUDE_LIST[@]}"; do
+    # Form the full source path.
+    # We explicitly remove the trailing slash from item_to_sync for the source argument
+    # to rsync. This ensures the directory/file itself is copied into the destination,
+    # rather than just its contents (if it's a directory).
+    SOURCE_ITEM_PATH="$SOURCE_DIR/${item_to_sync%/}" # Removes trailing slash if present
 
-    if [ "$SKIP_ITEM" = true ]; then
-        continue # Skip to the next item in the find loop
+    if [ -e "$SOURCE_ITEM_PATH" ]; then # Check if the source item actually exists
+        echo "Processing: $SOURCE_ITEM_PATH"
+        # The rsync command:
+        # -av: archive mode (preserves permissions, timestamps, etc.), verbose
+        # "$SOURCE_ITEM_PATH": The item (file or directory) from ~/.config to copy.
+        #                     Crucially, this path does NOT have a trailing slash,
+        #                     so rsync copies the item ITSELF.
+        # "$DEST_CONFIG_DIR/": The destination directory. The trailing slash here
+        #                      means "copy into this directory".
+        # "$EXCLUDE_ARGS": Any defined exclusions. These are applied *within* the
+        #                  copied item.
+        eval rsync -av "$SOURCE_ITEM_PATH" "$DEST_CONFIG_DIR/" "$EXCLUDE_ARGS"
+    else
+        echo "Warning: Source item '$SOURCE_ITEM_PATH' does not exist in your ~/.config. Skipping."
     fi
-
-    echo "Processing: $item_name"
-    # Execute rsync with the dynamically generated exclude arguments
-    # The eval is needed because $EXCLUDE_ARGS is a string that needs to be parsed by bash
-    # as separate arguments. Use with caution, but it's common for rsync's --exclude.
-    eval rsync -av --delete-after "$item_path" "$DEST_CONFIG_DIR/" "$EXCLUDE_ARGS"
 done
 
-echo "Configuration sync complete."
+echo "Selective configuration sync complete."
+
 
 # --- Git Operations ---
 # Navigate to the HyDE repository directory
