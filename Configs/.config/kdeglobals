@@ -1,11 +1,11 @@
 [Colors:View]
-BackgroundNormal=#1B2059FF
+BackgroundNormal=#101419FF
 
 [General]
 TerminalApplication=
 
 [Icons]
-Theme=BeautyLine
+Theme=Tela-circle-green
 
 [KDE]
 widgetStyle=kvantum
