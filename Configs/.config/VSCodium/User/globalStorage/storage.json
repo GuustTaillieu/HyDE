@@ -4,39 +4,42 @@
     "telemetry.devDeviceId": "a8a27e95-d7c5-4ec6-ab92-d0f42bed0c03",
     "backupWorkspaces": {
         "workspaces": [],
-        "folders": [
+        "folders": [],
+        "emptyWindows": [
             {
-                "folderUri": "file:///home/gustavo/HyDE"
+                "backupFolder": "1754776002525"
             }
-        ],
-        "emptyWindows": []
+        ]
     },
     "windowControlHeight": 35,
     "profileAssociations": {
         "workspaces": {
             "file:///home/gustavo/HyDE": "__default__profile__",
-            "file:///home/gustavo/HyDE/Configs/.config": "__default__profile__"
+            "file:///home/gustavo/HyDE/Configs/.config": "__default__profile__",
+            "file:///home/gustavo/Documents/projects/test-vue-proj": "__default__profile__"
         },
-        "emptyWindows": {}
+        "emptyWindows": {
+            "1754776002525": "__default__profile__"
+        }
     },
     "theme": "vs-dark",
-    "themeBackground": "#101419",
+    "themeBackground": "#1b1a29",
     "windowSplash": {
         "zoomLevel": 0,
         "baseTheme": "vs-dark",
         "colorInfo": {
             "foreground": "#ffffff",
-            "background": "#101419",
-            "editorBackground": "#101419",
-            "titleBarBackground": "#101419",
+            "background": "#1b1a29",
+            "editorBackground": "#1b1a29",
+            "titleBarBackground": "#1b1a29",
             "titleBarBorder": "rgba(0, 0, 0, 0)",
-            "activityBarBackground": "#293b52",
+            "activityBarBackground": "#2c2952",
             "activityBarBorder": "rgba(0, 0, 0, 0)",
-            "sideBarBackground": "#293b52",
+            "sideBarBackground": "#2c2952",
             "sideBarBorder": "rgba(0, 0, 0, 0)",
-            "statusBarBackground": "#101419",
+            "statusBarBackground": "#1b1a29",
             "statusBarBorder": "rgba(0, 0, 0, 0)",
-            "statusBarNoFolderBackground": "#101419",
+            "statusBarNoFolderBackground": "#1b1a29",
             "windowBorder": "rgba(0, 0, 0, 0)"
         },
         "layoutInfo": {
@@ -44,7 +47,7 @@
             "editorPartMinWidth": 220,
             "titleBarHeight": 35,
             "activityBarWidth": 0,
-            "sideBarWidth": 300,
+            "sideBarWidth": 0,
             "auxiliaryBarWidth": 0,
             "statusBarHeight": 0,
             "windowBorder": false
@@ -52,14 +55,13 @@
     },
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/gustavo/HyDE",
-            "backupPath": "/home/gustavo/.config/VSCodium/Backups/40833239313524823affc622f0e5d96b",
+            "backupPath": "/home/gustavo/.config/VSCodium/Backups/1754776002525",
             "uiState": {
                 "mode": 0,
                 "x": 0,
                 "y": 0,
                 "width": 960,
-                "height": 1042
+                "height": 521
             }
         },
         "openedWindows": []
@@ -74,6 +76,10 @@
                     "auxiliaryBarVisible": false
                 },
                 "a38b62369fdd7ff37e6b74977d658a0a": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "6fc43573fa56d677b43df2716b64249d": {
                     "sideBarVisible": true,
                     "auxiliaryBarVisible": false
                 }
