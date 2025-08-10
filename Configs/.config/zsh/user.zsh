@@ -25,5 +25,7 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
     # manually add your oh-my-zsh plugins here
     plugins=(
         "sudo"
+        "man"
+        "cp"
     )
 fi

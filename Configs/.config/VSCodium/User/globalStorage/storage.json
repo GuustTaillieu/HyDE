@@ -7,7 +7,7 @@
         "folders": [],
         "emptyWindows": [
             {
-                "backupFolder": "1754776002525"
+                "backupFolder": "1754838080429"
             }
         ]
     },
@@ -19,7 +19,10 @@
             "file:///home/gustavo/Documents/projects/test-vue-proj": "__default__profile__"
         },
         "emptyWindows": {
-            "1754776002525": "__default__profile__"
+            "1754837109274": "__default__profile__",
+            "1754837851262": "__default__profile__",
+            "1754837931332": "__default__profile__",
+            "1754838080429": "__default__profile__"
         }
     },
     "theme": "vs-dark",
@@ -55,13 +58,13 @@
     },
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/gustavo/.config/VSCodium/Backups/1754776002525",
+            "backupPath": "/home/gustavo/.config/VSCodium/Backups/1754838080429",
             "uiState": {
                 "mode": 0,
                 "x": 0,
                 "y": 0,
-                "width": 960,
-                "height": 521
+                "width": 1920,
+                "height": 1080
             }
         },
         "openedWindows": []
