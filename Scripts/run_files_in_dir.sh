@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+set -u
 
-TARGET_DIRECTORY="$HOME/HyDE/Scripts/programs_to_install"
+DEFAULT="$HOME/HyDE/Scripts/programs_to_install"
+TARGET_DIRECTORY="${1:-$DEFAULT}"
 
 # Check if the directory exists
 if [ ! -d "$TARGET_DIRECTORY" ]; then

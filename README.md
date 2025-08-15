@@ -78,23 +78,30 @@ For NixOS support there is a separate project being maintained @ [Hydenix](https
 
 To install, execute the following commands:
 
+> [!IMPORTANT]
+> Refer your list from `Scripts/pkg_extra.lst`
+> or you can `cp Scripts/pkg_extra.lst Scripts/pkg_user.lst` if you wish to install all extra packages.
+
 ```shell
 pacman -S --needed git base-devel
 git clone --depth 1 https://github.com/HyDE-Project/HyDE ~/HyDE
-cd ~/HyDE/Scripts
-./install.sh
+sh $HOME/HyDE/Scripts/install.sh
 ```
 
-To add the pre-installed programs run:
+To pre-configure the installation more with apps and services, run:
 ```shell
-cd ~/HyDE/Scripts
-./install_programs.sh
+sh $HOME/HyDE/Scripts/add_custom_features.sh
 ```
 
 To sync the edited configs in .config to the HyDE project use:
 ```shell
-cd ~/HyDE/Scripts
-./sync_configs.sh
+sh $HOME/HyDE/Scripts/sync_configs.sh
+```
+
+or use the cli command:
+
+```shell
+backup_configs
 ```
 
 > [!TIP]
@@ -103,10 +110,6 @@ cd ~/HyDE/Scripts
 > ```shell
 > ./install.sh pkg_user.lst
 > ```
-
-> [!IMPORTANT]
-> Refer your list from `Scripts/pkg_extra.lst`
-> or you can `cp Scripts/pkg_extra.lst Scripts/pkg_user.lst` if you wish to install all extra packages.
 
 <!--
 

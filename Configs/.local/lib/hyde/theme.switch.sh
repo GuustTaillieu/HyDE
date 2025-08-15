@@ -118,6 +118,7 @@ fi
 GTK_ICON="$(get_hyprConf "ICON_THEME")"
 CURSOR_THEME="$(get_hyprConf "CURSOR_THEME")"
 CURSOR_SIZE=${_CURSOR_SIZE:-"$(get_hyprConf "CURSOR_SIZE")"}
+TERMINAL="$(get_hyprConf "TERMINAL")"
 font_name="$(get_hyprConf "FONT")"
 font_size="$(get_hyprConf "FONT_SIZE")"
 monospace_font_name="$(get_hyprConf "MONOSPACE_FONT")"

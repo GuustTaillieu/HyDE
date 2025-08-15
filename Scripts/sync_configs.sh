@@ -12,6 +12,7 @@ DEST_CONFIG_DIR="$DEST_REPO_DIR/Configs/.config" # Where the configs live within
 #
 # DO NOT include a leading '/' (e.g., '/hypr/'). Paths are relative.
 INCLUDE_LIST=(
+  "tmux"
 	"Kvantum/"
 	"VSCodium/"
 	"cava/"
