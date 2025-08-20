@@ -25,9 +25,12 @@ alias up='$aurhelper -Syu'                                             # update 
 alias cleanup='$aurhelper -Qtdq | $aurhelper -Rns -'                        # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='vscodium'                                                        # gui code editor
 alias fastfetch='fastfetch --logo-type kitty'
-alias nv='nvim .'
+alias vim='nvim'
+alias find='fd'
+alias grep='rg'
 
 # Directory navigation shortcuts
+alias cd='z'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
@@ -97,3 +100,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Zoxide
+eval "$(zoxide init zsh)"
