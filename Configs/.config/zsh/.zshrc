@@ -77,7 +77,6 @@ function load_nvm {
 	# Load nvm and its bash completion
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 }
 
 function nvm {
@@ -86,11 +85,11 @@ function nvm {
 	nvm "$@"
 }
 
-# Loads npm
-function npm {
-  unfunction npm
+# Loads npx
+function npx {
+  unfunction npx
   load_nvm
-  npm "$@"
+  npx "$@"
 }
 
 # pnpm
