@@ -7,11 +7,17 @@
 rofiAssetDir="${SHARE_DIR}/hyde/rofi/assets"
 
 hypr_border=${hypr_border:-"$(hyprctl -j getoption decoration:rounding | jq '.int')"}
+hypr_border=${hypr_border:-2}
 
 #// scale for monitor
 mon_data=$(hyprctl -j monitors)
 mon_x_res=$(jq '.[] | select(.focused==true) | if (.transform % 2 == 0) then .width else .height end' <<<"${mon_data}")
 mon_scale=$(jq '.[] | select(.focused==true) | .scale' <<<"${mon_data}" | sed "s/\.//")
+
+# Add fallback size
+mon_x_res=${mon_x_res:-1920}
+mon_scale=${mon_scale:-1}
+
 mon_x_res=$((mon_x_res * 100 / mon_scale))
 
 selector_menu() {
@@ -42,7 +48,7 @@ selector_menu() {
 
     #// launch rofi menu
     RofiSel=$(
-        find "${rofiAssetDir}" -name "theme_style_*" |
+        find -L "${rofiAssetDir}" -name "theme_style_*" |
             awk -F '[_.]' '{print $((NF - 1))}' |
             while read -r styleNum; do
                 echo -en "${styleNum}\x00icon\x1f${rofiAssetDir}/theme_style_${styleNum}.png\n"
