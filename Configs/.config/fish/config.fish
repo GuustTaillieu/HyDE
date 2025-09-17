@@ -22,12 +22,12 @@ if type -q duf
     end
 end
 
-# fzf
+# fzf 
 if type -q fzf
-    fzf --fish | source
+    fzf --fish | source 
     for file in ~/.config/fish/functions/fzf/*.fish
         source $file
-        # NOTE: these functions are built on top of fzf builtin widgets
+        # NOTE: these funtions are built on top of fzf builtin widgets
         # they help you navigate through directories and files "Blazingly" fast
         # to get help on each one, just type `ff` in terminal and press `TAB`
         # keep in mind all of them require an argument to be passed after the alias
@@ -47,7 +47,7 @@ bind -M insert \ce '$EDITOR $(fzf --preview="bat --color=always --plain {}")'
 
 
 set fish_pager_color_prefix cyan
-set fish_color_autosuggestion brblack
+set fish_color_autosuggestion brblack 
 
 # List Directory
 alias c='clear'                                                        

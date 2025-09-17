@@ -72,7 +72,3 @@ end
 if test -z "$PARALLEL_HOME"
     set -gx PARALLEL_HOME "$XDG_CONFIG_HOME/parallel"
 end
-
-if test -z "$HYPRLAND_CONFIG"
-    set -gx HYPRLAND_CONFIG "$XDG_DATA_HOME/hypr/hyprland.conf"
-end
