@@ -1,0 +1,18 @@
+# This service is used to work around an apparent bug that freezes 
+# keyboard and mouse inputs when the system starts
+
+[Unit]
+Description=Service to reset KVM USB connection at boot
+Before=sddm.service
+DefaultDependencies=no
+Wants=local-fs.target
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/reset-kvm.sh
+RemainAfterExit=yes
+User=root
+
+[Install]
+WantedBy=sddm.service
